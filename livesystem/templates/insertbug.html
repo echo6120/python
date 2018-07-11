@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布bug</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://shared.ydstatic.com/xue/icon/favicon.ico">
+    <style type="text/css">
+        *{margin:0;padding: 0;outline: none;}
+        html,body{height: 100%;width: 100%;color:#818a92;background-color: #f5f5f5;}
+        body{font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,PingFang SC,Hiragino Sans GB,STHeiti,Microsoft YaHei,Microsoft JhengHei,Source Han Sans SC,Noto Sans CJK SC,Source Han Sans CN,Noto Sans SC,Source Han Sans TC,Noto Sans CJK TC,WenQuanYi Micro Hei,SimSun,sans-serif;}
+        input,textarea{border:1px solid #a7b0b8;}
+        #container{display: flex;flex-direction: column;height: 100%;}
+        .headerIn{height: 60px;display:flex;align-items: center;width: 1180px;min-width: 1180px;margin:0 auto;}
+        .headerIn h1{flex:1;}
+        #header img{width: 139px;height: 32px;}
+        #header, #footer{background-image: linear-gradient(-90deg,#00d87d,#00db9d);}
+        #header h1, #footer {text-align: center;color: #fff;}
+        #footer{height: 25px;line-height: 25px;}
+        #midPart{flex: 1;display: flex;}
+        #menu{background-color: #fff; width: 200px; border-right:1px solid #ebebeb;display: flex;flex-direction: column;align-items: center;}
+        #content{flex: 1;display: flex;justify-content: center;align-items: flex-start;overflow: auto;}
+        #menu h3 {color:#818a92;font-size: 16px;margin: 10px;cursor: pointer;} 
+        #menu h3:hover {color:#00db9d;}
+        textarea{resize: none;}
+        form div{font-size: 20px;margin-bottom: 10px;display: flex;align-items: center;}
+        #submitBtn{display: block; color: #fff;border: 0; background-image: linear-gradient(-90deg,#17d470,#1bd3af);box-shadow: 0 4px 8px 0 rgba(26,212,151,.2);border-radius: 4px;width: 88px;text-align: center;font-size: 16px;height: 34px;line-height: 34px;margin:0 auto;cursor: pointer;}
+    </style>
+</head>
+<body>
+
+<div id="container" style="width:100%">
+	<div id="header">
+        <div class="headerIn">
+            <a href="https://ke.youdao.com">
+                <img src="https://shared-https.ydstatic.com/ke/web/v1.0.7/0dfa30bc.png" alt="有道精品课">
+            </a>
+            <h1 style="margin-bottom:0;">直播问题反馈系统</h1>
+        </div>
+    </div>
+
+	<div id="midPart">
+		<div id="menu">
+			 <a href="/home" style="color:#00db9d;">主页</a>
+            <a href="/insertbugview" style="color:#00db9d;">bug反馈</a>
+            <a href="/buglist" style="color:#00db9d;">bug列表</a>
+            <a href=/insertnotifyview" style="color:#00db9d;">发布公告</a>
+		</div>
+
+		<div id="content">
+			<form action="/insertbug/" method="post">
+			  {% csrf_token %}
+			  <div><label>反馈日期： </label>
+			  <input type="date" name ="testtime" size="30"></input></div>
+			  <div><label>值班人员： </label>
+			  <input size="30" name="testername"></input></div>
+				<div><label>测试机型： </label>
+				<input size="30" name="devicename"></input></div>
+				<div><label>系统类型： </label>
+				<input size="30" name="system"></input></div>
+				<div><label>问题描述： </label>
+				<textarea rows="10" cols="60" name="bug"></textarea></div>
+                <div><label>添加图片： </label>
+                <input size="100" name="img" placeholder="请在oImage上传图片，并将图片地址复制到此处"></input></div>
+				<div><label>是否是bug：</label>
+                    <input type="radio" checked="checked" name="isBug" value="None" /><span style="display: inline-block;margin-left: 2px;margin-right: 5px;">待定</span>
+					<input type="radio" name="isBug" value="是" /><span style="display: inline-block;margin-left: 2px;margin-right: 5px;">是</span>
+					<input type="radio" name="isBug" value="否" /><span style="display: inline-block;margin-left: 2px;">否</span>
+				</div>
+			  <input id="submitBtn" value="提交" type="submit">
+			</form>
+		</div>
+	</div>
+	<div id="footer">©2018 网易公司</div>
+
+</div>
+</body>
+</html>
