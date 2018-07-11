@@ -7,18 +7,7 @@ from Util.HttpClient import *
 #reload(sys)
 #sys.setdefaultencoding("utf8")
 import sys
-print (sys.path)
-import sys
-import os
-curPath = os.path.abspath(os.path.dirname(__file__))
-rootPath = os.path.split(curPath)[0]
-sys.path.append(rootPath)
-sys.path.append('D:\\xca\xfd\xbe\xdd\xbf\xf2\xbc\xdc\xcd\xea\xd5\xfb\xb0\xe6\\interface_framework\\test_script')
-sys.path.append("D:\\xca\xfd\xbe\xdd\xbf\xf2\xbc\xdc\xcd\xea\xd5\xfb\xb0\xe6\\interface_framework")
-sys.path.append("C:\\windows\\system32\\python27.zip")
-sys.path.append("'C:\\windows\\system32\\python27.zip")
-sys.path.append("D:\\xca\xfd\xbe\xdd\xbf\xf2\xbc\xdc\xcd\xea\xd5\xfb\xb0\xe6\\interface_framework")
-sys.path.append("D:\\xca\xfd\xbe\xdd\xbf\xf2\xbc\xdc\xcd\xea\xd5\xfb\xb0\xe6\\interface_framework")
+sys.path.append("D:\\jenkins-2.60.1\\workspace\\interface_test\\interface_framework")
 class RunTest:
 	def __init__(self):
 		#模拟post/get请求
