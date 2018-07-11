@@ -105,14 +105,9 @@ class ParseExcel(object):
     #根据对应的caseid找到对应的行号
     def get_row_num(self,case_id):
         num=1
-        #print "case_id:**************",case_id
         clos_data = self.get_single_col(testcase_id-1)
-        #print "=================="
-        #print clos_data
         for col_data in clos_data:
-            #print type(col_data.value.encode("gbk"))
             if col_data.value != None and case_id !=None:
-                # "nownownownow",col_data.value,"*",case_id,"*",type(col_data.value),"*",type(case_id)
                 if case_id in col_data.value:
                     return num
             else:

@@ -23,7 +23,7 @@ class HttpClient(object):
         else:
             res = requests.get(url=url, params=data, verify=False)
         #return res.json()
-            return res.json()
+        return res.json()
 
     def run_main(self, method, url, data=None, header=None):
         res = None
